@@ -25,8 +25,11 @@ def export(items):
     return result
 
 parser = make_parser()
-simplejson.dump(export(parser.parse(input.read(),
-                                    lexer=lexer,
-                                    tracking=with_lineno)),
-                output, indent=2)
-output.write('\n')
+try:
+    simplejson.dump(export(parser.parse(input.read(),
+                                        lexer=lexer,
+                                        tracking=with_lineno)),
+                    output, indent=2)
+    output.write('\n')
+except:
+    print('a')
